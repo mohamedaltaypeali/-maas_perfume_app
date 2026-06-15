@@ -11,6 +11,12 @@ workflows:
         script: |
           cd "$CM_BUILD_DIR/maas _ perfumes"
           flutter pub get
+      - name: Enable AndroidX
+        script: |
+          cd "$CM_BUILD_DIR/maas _ perfumes"
+          flutter pub upgrade
+          echo "android.useAndroidX=true" >> android/gradle.properties
+          echo "android.enableJetifier=true" >> android/gradle.properties
       - name: Build APK
         script: |
           cd "$CM_BUILD_DIR/maas _ perfumes"
