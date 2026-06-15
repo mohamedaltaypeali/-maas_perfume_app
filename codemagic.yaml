@@ -2,17 +2,18 @@ workflows:
   android-release:
     name: MAAS PERFUMES Android
     max_build_duration: 60
+    instance_type: mac_mini_m2
     environment:
       flutter: stable
       java: 17
     scripts:
       - name: Get packages
         script: |
-          cd maas_perfumes
+          cd "$CM_BUILD_DIR/maas _ perfumes"
           flutter pub get
       - name: Build APK
         script: |
-          cd maas_perfumes
+          cd "$CM_BUILD_DIR/maas _ perfumes"
           flutter build apk --release
     artifacts:
-      - maas_perfumes/build/app/outputs/flutter-apk/app-release.apk
+      - maas _ perfumes/build/app/outputs/flutter-apk/app-release.apk
